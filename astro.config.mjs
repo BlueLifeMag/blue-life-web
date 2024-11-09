@@ -14,7 +14,11 @@ export default defineConfig({
 			projectId: 'rl6g1f3q',
 			dataset: 'production',
 			useCdn: false,
-			studioBasePath: '/studio'
+			studioBasePath: '/studio',
+			stega: {
+				studioUrl: '/studio',
+			},
+
 		}),
 		react(),
 	],
