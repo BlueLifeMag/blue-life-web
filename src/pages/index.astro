@@ -1,27 +1,12 @@
 ---
-import { loadQuery } from "../sanity/lib/load-query";
-import type { SanityDocument } from "@sanity/client";
-
-const { data: posts } = await loadQuery<SanityDocument[]>({
-  query: `*[_type == "post"]`,
-});
+import Hero from "../components/Hero.astro";
+import Updates from "../components/Updates.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Index Page</title>
-</head>
-<body>
-  <h1>Welcome to the Blog</h1>
-  <ul>
-    {posts.map((post) => (
-      <li>
-        <a href={`/post/${post.slug.current}`}>{post.title}</a>
-      </li>
-    ))}
-  </ul>
-</body>
-</html>
+<Layout>
+    <div>
+        <Hero />
+        <Updates />
+    </div>
+</Layout>

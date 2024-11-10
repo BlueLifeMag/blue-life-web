@@ -1,0 +1,97 @@
+---
+import { ChevronDown, Search } from "lucide-astro";
+
+const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Health & Wellness", href: "/health-wellness" },
+    { name: "Women's Health", href: "/womens-health" },
+    { name: "Blogs", href: "/blogs", dropdown: true },
+    { name: "Who we are", href: "/who-we-are", dropdown: true },
+    { name: "Contact Us", href: "/contact" }
+];
+---
+<nav class="navbar">
+    <div class="logo">
+        <img src="/logo.svg" alt="Logo" />
+    </div>
+    <ul class="nav-links">
+        {navItems.map((item) => (
+            <li>
+                <a href={item.href}>{item.name}</a>
+                {item.dropdown && <ChevronDown class="dropdown-icon" />}
+            </li>   
+        ))}
+    </ul>
+    <div class="nav-actions">
+        <button class="search-button"><Search /></button>
+        <button class="subscribe-button">SUBSCRIBE</button>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ebebeb;
+      padding: 0.5rem 2rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      margin: 0 1.5rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #191919;
+        position: relative;
+        padding-bottom: 0.25rem;
+    }
+
+    .nav-links a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: #3788BD;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+        width: 100%;
+    }
+
+    .nav-links a:focus {
+        color: #3788BD;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-button {
+        background-color: transparent;
+        border: none;
+        margin-right: 1rem;
+    }
+    .subscribe-button {
+      background-color: #3788BD;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+</style>

@@ -1,5 +1,6 @@
 ---
 import { VisualEditing } from "@sanity/astro/visual-editing";
+import NavBar from "../components/NavBar.astro";
 
 
 export type props = {
@@ -16,10 +17,14 @@ const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLE
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <meta name="viewport" content="width=device-width">
         <meta name="generator" content={Astro.generator}>
+        <link rel="stylesheet" href="../styles/global.css"> 
         <title>{title}</title>
     </head>
     <body>
-        <slot />
+        <NavBar />  
+        <main>
+            <slot />
+        </main>
         <VisualEditing enabled={visualEditingEnabled} />
     </body>
 </html>

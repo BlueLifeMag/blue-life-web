@@ -1,0 +1,50 @@
+---
+const updates = [
+  {
+    category: "Telemedicine",
+    title: "Telemedicine: Expanding Access to Healthcare in Rural Africa",
+    description: "This article delves into how telehealth platforms are bridging the gap...",
+    image: "/path/to/image1.jpg"
+  },
+  {
+    category: "Nutrition and Health",
+    title: "The Role of Traditional Diets in Preventing Lifestyle Diseases",
+    description: "This article opens the health benefits of indigenous foods...",
+    image: "/path/to/image2.jpg"
+  },
+];
+
+---
+
+<aside class="updates">
+  <h2>Latest Updates</h2>
+  {updates.map((update) => (
+    <div class="update">
+      <img src={update.image} alt={update.title} class="update-image" />
+      <div class="update-content">
+        <h3>{update.category}</h3>
+        <p>{update.title}</p>
+        <p>{update.description}</p>
+      </div>
+    </div>
+  ))}
+</aside>
+
+<style>
+  .updates {
+    margin-top: 2rem;
+  }
+  .update {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .update-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+    border-radius: 8px;
+  }
+  .update-content {
+    flex: 1;
+  }
+</style>
